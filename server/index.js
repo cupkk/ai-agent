@@ -94,68 +94,68 @@ app.use('*', (req, res) => {
 // 全局错误处理
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// const PORT = process.env.PORT || 5000;
 
-const server = app.listen(PORT, async () => {
-  console.log(`🚀 智能工作助手服务器启动成功`);
-  console.log(`📍 服务器地址: http://localhost:${PORT}`);
-  console.log(`📚 API文档: http://localhost:${PORT}/api-docs`);
-  console.log(`🌍 环境: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`⚡ 进程ID: ${process.pid}`);
+// const server = app.listen(PORT, async () => {
+//   console.log(`🚀 智能工作助手服务器启动成功`);
+//   console.log(`📍 服务器地址: http://localhost:${PORT}`);
+//   console.log(`📚 API文档: http://localhost:${PORT}/api-docs`);
+//   console.log(`🌍 环境: ${process.env.NODE_ENV || 'development'}`);
+//   console.log(`⚡ 进程ID: ${process.pid}`);
   
-  // 初始化微信公众号菜单
-  try {
-    const { initializeWechatMenu } = require('./services/wechatMenuService');
-    await initializeWechatMenu();
-  } catch (error) {
-    console.log('⚠️  微信菜单初始化跳过:', error.message);
-  }
+//   // 初始化微信公众号菜单
+//   try {
+//     const { initializeWechatMenu } = require('./services/wechatMenuService');
+//     await initializeWechatMenu();
+//   } catch (error) {
+//     console.log('⚠️  微信菜单初始化跳过:', error.message);
+//   }
   
-  // 初始化通知调度器
-  try {
-    const SchedulerService = require('./services/schedulerService');
-    global.schedulerService = new SchedulerService();
-    await global.schedulerService.initialize();
-  } catch (error) {
-    console.log('⚠️  通知调度器初始化跳过:', error.message);
-  }
-});
+//   // 初始化通知调度器
+//   try {
+//     const SchedulerService = require('./services/schedulerService');
+//     global.schedulerService = new SchedulerService();
+//     await global.schedulerService.initialize();
+//   } catch (error) {
+//     console.log('⚠️  通知调度器初始化跳过:', error.message);
+//   }
+// });
 
-// 优雅关闭
-process.on('SIGTERM', () => {
-  console.log('收到SIGTERM信号，正在优雅关闭服务器...');
+// // 优雅关闭
+// process.on('SIGTERM', () => {
+//   console.log('收到SIGTERM信号，正在优雅关闭服务器...');
   
-  // 停止调度器
-  if (global.schedulerService) {
-    global.schedulerService.stopAll();
-  }
+//   // 停止调度器
+//   if (global.schedulerService) {
+//     global.schedulerService.stopAll();
+//   }
   
-  server.close(() => {
-    console.log('服务器已关闭');
-    process.exit(0);
-  });
-});
+//   server.close(() => {
+//     console.log('服务器已关闭');
+//     process.exit(0);
+//   });
+// });
 
-process.on('SIGINT', () => {
-  console.log('收到SIGINT信号，正在优雅关闭服务器...');
+// process.on('SIGINT', () => {
+//   console.log('收到SIGINT信号，正在优雅关闭服务器...');
   
-  // 停止调度器
-  if (global.schedulerService) {
-    global.schedulerService.stopAll();
-  }
+//   // 停止调度器
+//   if (global.schedulerService) {
+//     global.schedulerService.stopAll();
+//   }
   
-  server.close(() => {
-    console.log('服务器已关闭');
-    process.exit(0);
-  });
-});
+//   server.close(() => {
+//     console.log('服务器已关闭');
+//     process.exit(0);
+//   });
+// });
 
-// 未处理的Promise拒绝
-process.on('unhandledRejection', (err, promise) => {
-  console.error('未处理的Promise拒绝:', err.message);
-  server.close(() => {
-    process.exit(1);
-  });
-});
+// // 未处理的Promise拒绝
+// process.on('unhandledRejection', (err, promise) => {
+//   console.error('未处理的Promise拒绝:', err.message);
+//   server.close(() => {
+//     process.exit(1);
+//   });
+// });
 
 module.exports = app;
