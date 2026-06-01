@@ -74,6 +74,15 @@ npm run install-all
 npm run dev
 ```
 
+### 本地环境变量配置
+
+在开始本地集成调试前，请先复制 `server/.env.example`
+到 `server/.env`，并仅在本机填写真实凭据。
+
+- 安全示例和占位符配置请参考 [Safe Local Environment Setup](docs/local-environment-setup.md)
+- 微信接入说明请参考 [docs/wechat-setup-guide.md](docs/wechat-setup-guide.md)
+- AI 提供商配置请参考 [docs/ai-configuration-guide.md](docs/ai-configuration-guide.md)
+
 ### 生产环境部署
 ```bash
 # 构建前端
@@ -151,9 +160,11 @@ npm start
 
 ## Open Source Maintenance
 
-This repository is maintained as an open-source intelligent work-assistant project. See:
+This repository is maintained as an open-source intelligent
+work-assistant project. See:
 
 - [Open Source Maintenance](docs/OPEN_SOURCE_MAINTENANCE.md)
+- [Safe Local Environment Setup](docs/local-environment-setup.md)
 - [Contributing Guide](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)
 - [Code of Conduct](CODE_OF_CONDUCT.md)
