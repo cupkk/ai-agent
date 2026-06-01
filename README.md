@@ -148,3 +148,13 @@ npm start
 ## 📝 许可证
 
 本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+
+## Open Source Maintenance
+
+This repository is maintained as an open-source intelligent work-assistant project. See:
+
+- [Open Source Maintenance](docs/OPEN_SOURCE_MAINTENANCE.md)
+- [Contributing Guide](CONTRIBUTING.md)
+- [Security Policy](SECURITY.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [MIT License](LICENSE)
