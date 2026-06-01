@@ -59,6 +59,24 @@ intelligent-work-assistant/
 - MongoDB >= 4.4
 - npm >= 8.0.0
 
+### 安全本地环境配置
+
+创建 `.env` 文件时，**切勿提交真实密钥**。使用占位符或仅在本地保留：
+
+```bash
+# .env.example — 复制为 .env 并填入安全的占位符
+OPENAI_API_KEY=sk-your-local-dev-key-here
+AZURE_COGNITIVE_SERVICES_KEY=your-azure-key-here
+GOOGLE_CLIENT_ID=your-client-id
+GOOGLE_CLIENT_SECRET=your-client-secret
+JWT_SECRET=a-random-secret-with-at-least-16-characters
+
+# 安全提醒：
+# - 不要在 .env 中使用生产环境的真实 API Key
+# - 不要在代码中硬编码任何密钥
+# - 确保 .env 在 .gitignore 中
+```
+
 ### 安装依赖
 ```bash
 # 安装根项目依赖
